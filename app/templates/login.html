@@ -1,5 +1,6 @@
-<!-- extend from base layout -->
-{% extends "base.html" %}
+<!-- enable reuse/inheritance from base layout -->
+{% extends "base.html" %} 
+
 
 {% block content %}
 <script type="text/javascript">
@@ -14,20 +15,25 @@ function set_openid(openid, pr)
     form.elements['openid'].value = openid
 }
 </script>
-  <h1>Sign In</h1>
+  <div class="landingpanel center">
   <form action="" method="post" name="login">
       {{ form.hidden_tag() }}
-      <p>
-        Please enter your OpenID, or select one of the providers below:<br>
-        {{ form.openid(size=80) }}
-        {% for error in form.openid.errors %}
-          <span style="color: red;">[{{error}}]</span>
-        {% endfor %}<br>
-        |{% for pr in providers %}
-          <a href="javascript:set_openid('{{ pr.url }}', '{{ pr.name }}');">{{ pr.name }}</a> |
-        {% endfor %}
-    </p>
+      <div>
+        <span class = "welcomeTxt">Welcome to <i>MyJournal,</i> where all your secrets are safely kept.</span>
+        <div class = "accessLinks"> Access your journal using one of the links and then clicking the <b>Sign in</b> button below.
+          <p class="hidden">{{ form.openid(size=80) }}</p>
+          {% for error in form.openid.errors %}<br/>
+          <span class="errors">Please select one of the links</span>
+          {% endfor %}<br>
+          <div class="openid_div">
+            {% for pr in providers %}
+              <a href="javascript:set_openid('{{ pr.url }}', '{{ pr.name }}');">{{ pr.name }}</a>
+            {% endfor %}
+        </div>
+      </div>
+    </div>
       <p>{{ form.remember_me }} Remember Me</p>
-      <p><input type="submit" value="Sign In"></p>
+      <p><input type="submit" value="Sign In" class="loginBtn"></p>
   </form>
+  </div>
 {% endblock %}

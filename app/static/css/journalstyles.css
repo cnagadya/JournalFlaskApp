@@ -1,0 +1,75 @@
+/*----------Universal Styles---------------*/
+html, body {height: 100%;
+	font-family: cursive;
+	;overflow: hidden}
+.fleft{float:left;}
+.fright{float:right;}
+.clearfix{clear:both;}
+.center{text-align: center}
+.errors{color: red;font-size:11px}
+a{text-decoration: none}
+.hidden{display: none}
+/*Header*/
+.headingBar{
+    background: #000;
+    padding: 13px 48px;
+    color: #cecece;
+    text-align: right;}
+
+.headingBar a{color:#aab392;}
+.headingBar a:hover{color:#eaf2f5;}
+
+/*Body*/
+body{padding:0px;
+	margin:0px}
+
+
+/*Footer*/
+
+/*----------Landing Page Styles---------------*/
+.landingcont{
+	position: relative;
+	height: 100vh;
+	background-image: url(../img/landingpic.jpg);
+	background-size: cover;
+	overflow: auto}
+.landingpanel{position: absolute;
+	top: 15%;
+	left: 20%;
+	bottom: 10%;
+	right:20%;
+	padding:30px;
+	overflow: auto;
+    background: rgba(15, 15, 15, 0.58)}
+
+.welcomeTxt{
+	font-size: 33px;
+	color: #dfdfdf;
+    line-height: 61px}
+.welcomeTxt i{
+	color: #b01cfc
+}
+
+.loginArea{background: #333}
+.accessLinks {color: #9f9e9e;
+	margin: 25px 0px}
+
+.openid_div{font-family: "Helvetica Neue",Helvetica,Verdana,Tahoma,Arial,sans-serif;
+    margin:30px 0px;}
+.openid_div > a{color:#fff;
+    background: #3C61AB;
+    padding: 10px 20px;
+    margin: 0px 5px;
+    font-size: 14px;}
+.openid_div > a:active{font-weight: bold;
+    opacity:0.9;}
+.openid_div > a:first-child{background:#3D0B99;}
+
+.loginBtn{
+    background-color: #333;
+    padding: 5px 10px;
+    min-width: 200px;
+    border: 1px solid #343434;
+    color: #b01cfc;
+    font-family: cursive;
+    font-size: 20px;}

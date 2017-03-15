@@ -1,8 +1,17 @@
-<html>
-  <head>
-    <title>{{ title }} - MyJournal</title>
-  </head>
-  <body>
-      <h1>Hello, {{ user.nickname }}!</h1>
-  </body>
-</html>
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hi, {{ user.nickname }}!</h1>
+    {% for article in articles %}
+        <p>
+	      {{ article.title }}
+	    </p>
+	    <p>
+	      {{ article.date }}
+	    </p>
+	    <p>
+	      {{ article.bodyTxt }}
+	    </p>
+    {% endfor %}
+{% endblock %}
