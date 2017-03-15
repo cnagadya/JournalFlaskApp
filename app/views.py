@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect, session, url_for, request, g
 from flask_login import login_user, logout_user, current_user, login_required
 from app import app, db, lm, oid
 from .forms import LoginForm, CreateForm
-from .models import User
+from .models import User, Article
 from datetime import datetime
 
 #load user from db so that user can be used by Flask-Login
@@ -27,22 +27,40 @@ def index():
                            user=user,
                            articles=articles)
 
-@app.route('/create')
+@app.route('/create', methods=['GET', 'POST'])
 @login_required
 def create():
-    
     user = g.user
     articles = []
     form = CreateForm()
-    if form.validate_on_submit(): 
-        g.user.title = form.title.data
-        g.user.bodyTxt = form.bodyTxt.data
-        g.user.tags = form.tags.data
-        g.user.date = datetime.utcnow()
-        db.session.add(g.article)
+
+    if request.method == "POST":
+        title = request.form['title']
+        bodytxt = request.form['bodytxt']
+        tags = request.form['tags']
+
+        article = Article(title=form.title.data,
+                          bodytxt=form.bodytxt.data,
+                          tags = form.tags.data,
+                          date = datetime.utcnow()) 
+        
+        db.session.add(article)
         db.session.commit()
-        flash('Your changes have been saved.')   
-    return render_template('create.html',
+        flash('You have successfully added a new article.')  
+    
+    # if form.validate_on_submit():
+
+
+
+    #     article = Article(title=form.title.data,
+    #                       bodyTxt=form.bodyTxt.data,
+    #                       tags = form.tags.data,
+    #                       date = datetime.utcnow()) 
+        
+    #     db.session.add(article)
+    #     db.session.commit()
+    #     flash('You have successfully added a new article.')   
+    return render_template('create.html', action="Add",
                            title='New Article',
                            user=user,
                            articles=articles,

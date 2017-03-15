@@ -2,12 +2,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form action="" method="post" name="create">
+<form action="{{ url_for('create') }}" method="post" name="create">
 	Article Title: {{form.title}}
-	{{form.bodyTxt}}
-	{{form.tags}}
-	
+	{{form.bodytxt}}
+	Tags{{form.tags}}
+
 	<input type="submit" value="Add Article">
 </form>
-<p> no crnnneate</p>
 {% endblock %}

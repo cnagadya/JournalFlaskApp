@@ -31,11 +31,11 @@ class User(db.Model):
 
 class Article(db.Model):
 	"""Table for the journey articles"""
-	
+	__tablename__ = 'article'
 	id = db.Column(db.Integer, primary_key=True )
 	title = db.Column(db.String, index=True, unique=True)
 	tags = db.Column(db.String, index=True, unique=True)
-	bodyTxt = db.Column(db.String, index=True, unique=True)
+	bodytxt = db.Column(db.String, index=True, unique=True)
 	date = db.Column(db.DateTime)
 	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
