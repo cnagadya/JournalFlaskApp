@@ -77,3 +77,26 @@ body{padding:0px;
 
 
 /*------View all Styles ----------------*/
+.listingWrap{color: #555;
+    width: 800px;
+    margin: 0 auto 0px;
+    padding: 20px;
+    background: #d5c3f3;
+    text-align: justify;
+    line-height: 25px;
+    min-height: 95%}
+
+.articleHeading{color: #2d0374;
+    font-size: 22px;}
+
+.articleDate {
+    font-size: 10px;
+    color: #6e6e6e;
+    line-height: 14px;
+    font-style: italic;
+}
+
+.articleTags{
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(103, 58, 183, 0.29);
+}

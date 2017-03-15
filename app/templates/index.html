@@ -6,15 +6,18 @@
    
 <div class="listingWrap">
     {% for article in articles %}
-        <p>
+        <div class="articleHeading">
 	      {{ article.title }}
-	    </p>
-	    <p>
-	      {{ article.date }}
-	    </p>
-	    <p>
+	    </div>
+	    <div class="articleDate">Created at:
+	      {{ article.date.strftime("%I:%M%p on %B %d, %Y") }}
+	    </div>
+	    <div class="articleDescription">
 	      {{ article.bodytxt }}
-	    </p>
+	    </div>
+	    <div class ="articletags">
+	    	{{article.tags}}
+	    </div>
     {% endfor %}
 </div>
 {% endblock %}
