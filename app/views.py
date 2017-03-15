@@ -21,7 +21,7 @@ def before_request():
 
 def index():
     user = g.user
-    articles = []
+    articles = user.articles
     return render_template('index.html',
                            title='Home',
                            user=user,
@@ -42,7 +42,7 @@ def create():
         article = Article(title=form.title.data,
                           bodytxt=form.bodytxt.data,
                           tags = form.tags.data,
-                          date = datetime.utcnow(), 
+                          date = datetime.now(), 
                           user_id = g.user.id) 
 
         
@@ -50,18 +50,7 @@ def create():
         db.session.commit()
         flash('You have successfully added a new article.')  
     
-    # if form.validate_on_submit():
-
-
-
-    #     article = Article(title=form.title.data,
-    #                       bodyTxt=form.bodyTxt.data,
-    #                       tags = form.tags.data,
-    #                       date = datetime.utcnow()) 
-        
-    #     db.session.add(article)
-    #     db.session.commit()
-    #     flash('You have successfully added a new article.')   
+      
     return render_template('create.html', action="Add",
                            title='New Article',
                            user=user,

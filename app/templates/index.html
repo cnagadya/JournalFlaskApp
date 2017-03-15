@@ -2,8 +2,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Hi, {{ user.nickname }}!</h1>
-   {{ user.title}}
+    <!-- <h1>Hi, {{ user.nickname }}!</h1> -->
+   
+<div class="listingWrap">
     {% for article in articles %}
         <p>
 	      {{ article.title }}
@@ -15,4 +16,5 @@
 	      {{ article.bodytxt }}
 	    </p>
     {% endfor %}
+</div>
 {% endblock %}

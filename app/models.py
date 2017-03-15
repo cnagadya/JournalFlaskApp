@@ -21,9 +21,9 @@ class User(db.Model):
 
 	def get_id(self):
 		try:
-			return unicode(self.id)  # python 2
+			return unicode(self.id) 
 		except NameError:
-			return str(self.id)  # python 3
+			return str(self.id)  
 
 	def __repr__(self):
 		return '<User %r' % (self.nickname)
@@ -31,6 +31,7 @@ class User(db.Model):
 
 class Article(db.Model):
 	"""Table for the journey articles"""
+	 # __searchable__ = ['tags','bodytxt','title'] #to use later for the search
 	__tablename__ = 'article'
 	id = db.Column(db.Integer, primary_key=True )
 	title = db.Column(db.String, index=True, unique=True)
