@@ -1,9 +1,8 @@
+*.pyc
 flask/
-db_repository/
-
 /db_create.py
 /db_downgrade.py
 /db_migrate.py
 /db_upgrade.py
-/*.pyc
+
 /app/*.pyc
