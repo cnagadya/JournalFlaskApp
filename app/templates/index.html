@@ -3,6 +3,7 @@
 
 {% block content %}
     <h1>Hi, {{ user.nickname }}!</h1>
+   {{ user.title}}
     {% for article in articles %}
         <p>
 	      {{ article.title }}

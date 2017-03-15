@@ -42,7 +42,9 @@ def create():
         article = Article(title=form.title.data,
                           bodytxt=form.bodytxt.data,
                           tags = form.tags.data,
-                          date = datetime.utcnow()) 
+                          date = datetime.utcnow(), 
+                          user_id = g.user.id) 
+
         
         db.session.add(article)
         db.session.commit()
