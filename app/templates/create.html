@@ -2,11 +2,16 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="listingWrap">
 <form action="{{ url_for('create') }}" method="post" name="create">
-	Article Title: {{form.title}}
-	{{form.bodytxt}}
-	Tags{{form.tags}}
+	<p>{{form.title(placeholder = "Enter your Article Title ")}}</p>
+	<br/>
+	<p style="margin-bottom:-3px">Details:</p>
+	{{form.bodytxt(cols=100, rows=12)}}
+	<p>{{form.tags(placeholder = "Tags")}}</p>
 
-	<input type="submit" value="Add Article">
+	<input type="submit" value="Add Article" class="button fright">
+	<div class="clearfix"></div>
 </form>
+</div>
 {% endblock %}

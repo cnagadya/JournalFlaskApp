@@ -1,7 +1,7 @@
 from flask import render_template, flash, redirect, session, url_for, request, g
 from flask_login import login_user, logout_user, current_user, login_required
 from app import app, db, lm, oid
-from .forms import LoginForm, CreateForm
+from .forms import LoginForm, CreateForm, EditForm
 from .models import User, Article
 from datetime import datetime
 
@@ -58,6 +58,37 @@ def create():
                            form=form)
 
 
+@app.route('/edit/', methods=['GET', 'POST'])
+@login_required
+def edit():
+    user = g.user
+    #articles =[]
+    form = EditForm()
+    article = db.session.query(Article).filter(Article.id==id).first()
+    if request.method == "POST":
+        title = request.form['title']
+        bodytxt = request.form['bodytxt']
+        tags = request.form['tags']
+
+        article = Article(title=form.title.data,
+                          bodytxt=form.bodytxt.data,
+                          tags = form.tags.data,
+                          #date = datetime.now(), 
+                          user_id = g.user.id) 
+
+        
+        db.session.commit()
+        flash('Changes have successfully been made.')  
+    
+      
+    return render_template('edit.html', action="edit",
+                           id=id,
+                           title='Edit Article',
+                           user=user,
+                           articles=articles,
+                           form=form)
+
+
 #Login view function
 @app.route('/login', methods=['GET', 'POST'])
 @oid.loginhandler #informs flask that it is the login view
@@ -96,7 +127,7 @@ def after_login(resp):
     login_user(user, remember = remember_me)
     return redirect(request.args.get('next') or url_for('index'))
 
-@app.route('/logout')
+@app.route('/ https://login.yahoo.com/config/login?logout=1')
 def logout():
     logout_user()
     return redirect(url_for('index'))

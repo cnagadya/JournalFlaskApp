@@ -34,9 +34,9 @@ class Article(db.Model):
 	 # __searchable__ = ['tags','bodytxt','title'] #to use later for the search
 	__tablename__ = 'article'
 	id = db.Column(db.Integer, primary_key=True )
-	title = db.Column(db.String, index=True, unique=True)
-	tags = db.Column(db.String, index=True, unique=True)
-	bodytxt = db.Column(db.String, index=True, unique=True)
+	title = db.Column(db.String,  unique=False)
+	tags = db.Column(db.String,  unique=False)
+	bodytxt = db.Column(db.String(300), unique=False)
 	date = db.Column(db.DateTime)
 	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 

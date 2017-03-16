@@ -1,0 +1,12 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<form action="{{ url_for('edit') }}" method="post" name="edit">
+	Article Title: {{form.title}}
+	{{form.bodytxt}}
+	Tags{{form.tags}}
+
+	<input type="submit" value="Save">
+</form>
+{% endblock %}

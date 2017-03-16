@@ -14,4 +14,9 @@ class CreateForm(Form):
 	bodytxt = TextAreaField('bodytxt',validators=[DataRequired()])
 
 	# date = d
-	
+class EditForm(Form):
+	"""Form to create / edit journal article
+	"""
+	title = StringField('title', validators=[DataRequired()])
+	tags = StringField('tags')
+	bodytxt = TextAreaField('bodytxt',validators=[DataRequired()])

@@ -9,6 +9,31 @@ html, body {height: 100%;
 .errors{color: red;font-size:11px}
 a{text-decoration: none}
 .hidden{display: none}
+input{border:none;
+     background:none}
+input:focus, textarea:focus, select:focus {-webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;}
+input[type="text"]{border-bottom: 1px solid #ad88f1;
+                  line-height: 30px;
+                  width:100%;
+                  font-family: cursive}
+input[type="text"]:focus{border-bottom: 1px solid #2d0374}
+textarea{font-family:cursive;
+    background-attachment: local; 
+    background-image:linear-gradient(to right, #d5c3f3 10px, transparent 10px),
+    linear-gradient(to left, #d5c3f3 10px, transparent 10px),
+    repeating-linear-gradient(#d5c3f3, #d5c3f3 30px, #ad88f1 30px, #ad88f1 31px, white 31px);
+    line-height: 31px;
+    padding: 0 10px;
+    width:100%;
+    border:none;}
+textarea:focus{background-attachment: local; 
+    background-image:linear-gradient(to right, #d5c3f3 10px, transparent 10px),
+    linear-gradient(to left, #d5c3f3 10px, transparent 10px),
+    repeating-linear-gradient(#d5c3f3, #d5c3f3 30px, #2d0374 30px, #2d0374 31px, white 31px)
+
+}
 /*Header*/
 .headingBar{
     background: #000;
@@ -65,7 +90,7 @@ body{padding:0px;
     opacity:0.9;}
 .openid_div > a:first-child{background:#3D0B99;}
 
-.loginBtn{
+.button{
     background-color: #333;
     padding: 5px 10px;
     min-width: 200px;
@@ -98,5 +123,5 @@ body{padding:0px;
 
 .articleTags{
     margin-bottom: 20px;
-    border-bottom: 1px solid rgba(103, 58, 183, 0.29);
+    border-bottom: 1px solid #ad88f1;
 }
