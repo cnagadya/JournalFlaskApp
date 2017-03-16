@@ -6,6 +6,7 @@
    
 <div class="listingWrap">
     {% for article in articles %}
+        <a href="/edit/{{ article.id }}" class = "fright">Edit</a>
         <div class="articleHeading">
 	      {{ article.title }}
 	    </div>
@@ -19,6 +20,7 @@
 	    	{{article.tags}}
 	    </div>
 	   
+	    
     {% endfor %}
 </div>
 {% endblock %}

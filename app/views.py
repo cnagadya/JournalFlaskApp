@@ -48,7 +48,8 @@ def create():
         
         db.session.add(article)
         db.session.commit()
-        flash('You have successfully added a new article.')  
+        flash('You have successfully added a new article.') 
+        return redirect(url_for('index')) 
     
       
     return render_template('create.html', action="Add",
@@ -57,41 +58,35 @@ def create():
                            articles=articles,
                            form=form)
 # @login_required
-@app.route('/edit', methods=['GET', 'POST'])
-# def edit():
-#     article=g.article
-#     # user = g.user
-#     # articles =[]
-#     form = EditForm()
-#     #article = db.session.query(Article).filter_by(article_id).first()
-#     if form.validate_on_submit():
-#         # title = request.form['title']
-#         # bodytxt = request.form['bodytxt']
-#         # tags = request.form['tags']
+@app.route('/edit/<int:article_id>', methods=['GET', 'POST'])
+@login_required
+def edit(article_id):
+    user = g.user
+    articles =[]
+    form = EditForm()
+    
+    if request.method == "POST":
+        title = request.form['title']
+        bodytxt = request.form['bodytxt']
+        tags = request.form['tags']
 
-#         # article = Article(title=form.title.data,
-#         #                   bodytxt=form.bodytxt.data,
-#         #                   tags = form.tags.data,
-#         #                   article_id = g.article.id, 
-#         #                   user_id = g.user.id) 
+        editedArticle = db.session.query(Article).filter(Article.id == article_id).first()
+        editedArticle.title = title
+        editedArticle.bodytxt = bodytxt
+        editedArticle.tags = tags
+        # editedArticle = update(Articles).where(Articles.id == article_id).values(title = title, bodytxt = bodytxt,tags=tags)
 
-#         g.article.title=form.title.data,
-#         g.article.bodytxt=form.bodytxt.data,
-#         g.article.tags = form.tags.data,
-#         article_id = g.article.id, 
-#         db.session.add(g.article)
-#         db.session.commit()
-#         flash('Changes have successfully been made.')  
-#         return redirect(url_for('edit'))
-#     else:
-#         pass
-
-#     return render_template('edit.html', action="edit",
-#                            article_id=article_id,
-#                            title='Edit Article',
-#                            user=user,
-#                            articles=articles,
-#                            form=form)
+        # 
+        db.session.commit()
+        flash('Changes have successfully been made.')  
+        return redirect(url_for('index'))
+      
+    return render_template('edit.html', action="edit",
+                           # article_id=article_id,
+                           title='Edit Article',
+                           user=user,
+                           articles=articles,
+                           form=form)
 #Login view function
 # @app.route('/')
 @app.route('/login', methods=['GET', 'POST'])

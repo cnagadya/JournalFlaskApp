@@ -8,6 +8,7 @@ html, body {height: 100%;
 .center{text-align: center}
 .errors{color: red;font-size:11px}
 a{text-decoration: none}
+.relative{position:relative;}
 .hidden{display: none}
 input{border:none;
      background:none}
@@ -34,6 +35,13 @@ textarea:focus{background-attachment: local;
     repeating-linear-gradient(#d5c3f3, #d5c3f3 30px, #2d0374 30px, #2d0374 31px, white 31px)
 
 }
+.notifications{position: absolute;
+    background: #000;
+    color: #dedede;
+    left: 30%;
+    padding: 10px;
+    border: 1px solid #222;
+    list-style: none}
 /*Header*/
 .headingBar{
     background: #000;
@@ -125,3 +133,5 @@ body{padding:0px;
     margin-bottom: 20px;
     border-bottom: 1px solid #ad88f1;
 }
+
+.listingWrap a{font-size:12px;}

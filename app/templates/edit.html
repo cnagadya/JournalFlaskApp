@@ -1,12 +1,47 @@
 
-{% extends "base.html" %}
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }} - MyJournal</title>
+    {% else %}
+    <title>Welcome to MyJournal</title>
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="../static/css/journalstyles.css">
+  </head>
+  <body>
+    <div class="landingcont">
+    <div class = "headingBar"> 
+        {% if g.user.is_authenticated %}
 
-{% block content %}
+        <a href="{{ url_for('index') }}">{{ user.nickname }}'s Journal</a>
+        | <a href="{{ url_for('create') }}">Create Article</a>
+        | <a href="{{ url_for('logout') }}">Logout</a>
+        
+        {% endif %}
+    </div>
+    
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="notifications">
+        {% for message in messages %}
+            <li>{{ message }} </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <div class="listingWrap">
+    	
 <form action="" method="post" name="edit">
-	Article Title: {{form.title}}
-	{{form.bodytxt}}
-	Tags{{form.tags}}
+	<p>{{ form.title }}</p>
+	<br/>
+	<p style="margin-bottom:-3px">Details:</p>
+	{{ form.bodytxt }}
+	<p>{{ form.tags }}</p>
 
-	<input type="submit" value="Save">
+	<input type="submit" value="Save Changes" class="button fright">
+	<div class="clearfix"></div>
 </form>
-{% endblock %}
+</div>
+  </div>
+  </body>
+</html>
