@@ -4,11 +4,11 @@
 {% block content %}
 <div class="listingWrap">
 <form action="{{ url_for('create') }}" method="post" name="create">
-	<p>{{form.title(placeholder = "Enter your Article Title ")}}</p>
+	<p>{{ form.title(placeholder = "Enter your Article Title ") }}</p>
 	<br/>
 	<p style="margin-bottom:-3px">Details:</p>
-	{{form.bodytxt(cols=100, rows=12)}}
-	<p>{{form.tags(placeholder = "Tags")}}</p>
+	{{ form.bodytxt(cols=100, rows=12) }}
+	<p>{{ form.tags(placeholder = "Tags") }}</p>
 
 	<input type="submit" value="Add Article" class="button fright">
 	<div class="clearfix"></div>

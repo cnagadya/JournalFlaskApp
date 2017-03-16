@@ -57,14 +57,20 @@ def create():
                            user=user,
                            articles=articles,
                            form=form)
-# @login_required
-@app.route('/edit/<int:article_id>', methods=['GET', 'POST'])
+    
 @login_required
+@app.route('/edit/<int:article_id>', methods=['GET', 'POST'])
+# @login_required
 def edit(article_id):
+    artik = db.session.query(Article).filter(Article.id == article_id).first()
+    # artik = Article.query.filter_by(id=id).first()
     user = g.user
     articles =[]
     form = EditForm()
-    
+    if request.method == "GET":
+        form.title.data = artik.title
+        form.bodytxt.data = artik.bodytxt
+        form.tags.data = artik.tags
     if request.method == "POST":
         title = request.form['title']
         bodytxt = request.form['bodytxt']
@@ -74,21 +80,19 @@ def edit(article_id):
         editedArticle.title = title
         editedArticle.bodytxt = bodytxt
         editedArticle.tags = tags
-        # editedArticle = update(Articles).where(Articles.id == article_id).values(title = title, bodytxt = bodytxt,tags=tags)
-
-        # 
+        
         db.session.commit()
         flash('Changes have successfully been made.')  
         return redirect(url_for('index'))
       
     return render_template('edit.html', action="edit",
-                           # article_id=article_id,
+                           
                            title='Edit Article',
                            user=user,
                            articles=articles,
                            form=form)
-#Login view function
-# @app.route('/')
+#Login view function 
+#@app.route('/')
 @app.route('/login', methods=['GET', 'POST'])
 @oid.loginhandler #informs flask that it is the login view
 def login():

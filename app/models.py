@@ -1,4 +1,4 @@
-from app import db
+from app import db, SQLAlchemy
 
 class User(db.Model):
 	"""class for the user table"""

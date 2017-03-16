@@ -6,7 +6,7 @@
    
 <div class="listingWrap">
     {% for article in articles %}
-        <a href="/edit/{{ article.id }}" class = "fright">Edit</a>
+        <a href="/edit/{{ article.id }}" class = "">Edit</a>
         <div class="articleHeading">
 	      {{ article.title }}
 	    </div>
@@ -14,7 +14,7 @@
 	      {{ article.date.strftime("%I:%M%p on %B %d, %Y") }}
 	    </div>
 	    <div class="articleDescription">
-	      {{ article.bodytxt }}
+	      {{ article.bodytxt}}
 	    </div>
 	    <div class ="articletags">
 	    	{{article.tags}}
@@ -23,4 +23,15 @@
 	    
     {% endfor %}
 </div>
+<script type="text/javascript" src="../static/js/readMoreJS.min.js"></script>
+<script type="text/javascript">
+	$readMoreJS.init({
+		target: '.articleDescription',
+		numOfWords: 50,
+		toggle: true,
+		moreLink: 'read more ...',
+		lessLink: 'Show less'
+	});
+</script>
 {% endblock %}
+

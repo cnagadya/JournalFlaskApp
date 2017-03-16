@@ -20,25 +20,9 @@
         {% endif %}
     </div>
     
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <ul class="notifications">
-        {% for message in messages %}
-            <li>{{ message }} </li>
-        {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
     <div class="listingWrap">
     	
-<form action="" method="post" name="edit">
-	<p>{{ form.title }}</p>
-	<br/>
-	<p style="margin-bottom:-3px">Details:</p>
-	{{ form.bodytxt(cols=100, rows=12) }}
-	<p>{{ form.tags(placeholder = "Tags")  }}</p>
 
-	<input type="submit" value="Save Changes" class="button fright">
 	<div class="clearfix"></div>
 </form>
 </div>
