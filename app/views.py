@@ -62,15 +62,15 @@ def create():
 @app.route('/edit/<int:article_id>', methods=['GET', 'POST'])
 # @login_required
 def edit(article_id):
-    artik = db.session.query(Article).filter(Article.id == article_id).first()
-    # artik = Article.query.filter_by(id=id).first()
+    articleData = db.session.query(Article).filter(Article.id == article_id).first()
+    
     user = g.user
     articles =[]
     form = EditForm()
     if request.method == "GET":
-        form.title.data = artik.title
-        form.bodytxt.data = artik.bodytxt
-        form.tags.data = artik.tags
+        form.title.data = articleData.title
+        form.bodytxt.data = articleData.bodytxt
+        form.tags.data = articleData.tags
     if request.method == "POST":
         title = request.form['title']
         bodytxt = request.form['bodytxt']

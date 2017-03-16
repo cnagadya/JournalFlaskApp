@@ -32,10 +32,10 @@
     <div class="listingWrap">
     	
 <form action="" method="post" name="edit">
-	<p>{{ form.title }}</p>
+	<p>{{ form.title(placeholder = "Enter New Title") }}</p>
 	<br/>
 	<p style="margin-bottom:-3px">Details:</p>
-	{{ form.bodytxt(cols=100, rows=12) }}
+	{{ form.bodytxt(cols=100, rows=8) }}
 	<p>{{ form.tags(placeholder = "Tags")  }}</p>
 
 	<input type="submit" value="Save Changes" class="button fright">

@@ -6,7 +6,8 @@
    
 <div class="listingWrap">
     {% for article in articles %}
-        <a href="/edit/{{ article.id }}" class = "">Edit</a>
+    <div class="articleDets">
+        <a href="/edit/{{ article.id }}" class = "button">Edit</a>
         <div class="articleHeading">
 	      {{ article.title }}
 	    </div>
@@ -19,8 +20,7 @@
 	    <div class ="articletags">
 	    	{{article.tags}}
 	    </div>
-	   
-	    
+    </div>
     {% endfor %}
 </div>
 <script type="text/javascript" src="../static/js/readMoreJS.min.js"></script>

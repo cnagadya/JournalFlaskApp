@@ -51,7 +51,10 @@ textarea:focus{background-attachment: local;
 
 .headingBar a{color:#aab392;}
 .headingBar a:hover{color:#eaf2f5;}
-
+a.rm-link{color: #999;
+    font-size: 11px;}
+a.rm-link:hover{color:#222;
+    text-decoration: underline;}
 /*Body*/
 body{padding:0px;
 	margin:0px}
@@ -97,7 +100,7 @@ body{padding:0px;
 .openid_div > a:active{font-weight: bold;
     opacity:0.9;}
 .openid_div > a:first-child{background:#3D0B99;}
-
+input#remember_me{visibility: hidden}
 .button{
     background-color: #333;
     padding: 5px 10px;
@@ -106,7 +109,7 @@ body{padding:0px;
     color: #b01cfc;
     font-family: cursive;
     font-size: 20px;}
-
+.button:hover{background-color: #000;border:1px solid #111111;}
 
 
 /*------View all Styles ----------------*/
@@ -129,12 +132,22 @@ body{padding:0px;
     font-style: italic;
 }
 
-.articleTags{
-    margin-bottom: 20px;
-    border-bottom: 1px solid #ad88f1;
-}
+.articleTags{display: inline-block;
+    font-size: 12px;
+    background: #ede;
+    line-height: 20px;
+    padding: 0px 5px;
+    color: #9E9E9E;
+    margin-bottom: 5px}
 
 .listingWrap a{font-size:12px;}
 .articleDescription {
-    font-size: 14px;
-}
+    font-size: 13px}
+.articleDets {margin-bottom: 20px;
+    border-bottom: 1px solid #dddddd;}
+.articleDets .button{float: right;
+    min-width: 50px;
+    text-align: center;
+    visibility: hidden;}
+
+.articleDets:hover .button{visibility: visible;}

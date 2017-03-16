@@ -1,6 +1,8 @@
 *.pyc
 flask/
 tmp/
+db_repository/
+app.db
 /db_create.py
 /db_downgrade.py
 /db_migrate.py
