@@ -36,7 +36,7 @@ class Article(db.Model):
 	id = db.Column(db.Integer, primary_key=True )
 	title = db.Column(db.String,  unique=False)
 	tags = db.Column(db.String,  unique=False)
-	bodytxt = db.Column(db.String(300), unique=False)
+	bodytxt = db.Column(db.String, unique=False)
 	date = db.Column(db.DateTime)
 	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 

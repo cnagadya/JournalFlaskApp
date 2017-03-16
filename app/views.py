@@ -15,10 +15,10 @@ def load_user(id):
 def before_request():
     g.user = current_user
 
-@app.route('/')
-@app.route('/index')
-@login_required
 
+
+@login_required
+@app.route('/index')
 def index():
     user = g.user
     articles = user.articles
@@ -27,8 +27,8 @@ def index():
                            user=user,
                            articles=articles)
 
-@app.route('/create', methods=['GET', 'POST'])
 @login_required
+@app.route('/create', methods=['GET', 'POST'])
 def create():
     user = g.user
     articles = []
@@ -56,45 +56,49 @@ def create():
                            user=user,
                            articles=articles,
                            form=form)
+# @login_required
+@app.route('/edit', methods=['GET', 'POST'])
+# def edit():
+#     article=g.article
+#     # user = g.user
+#     # articles =[]
+#     form = EditForm()
+#     #article = db.session.query(Article).filter_by(article_id).first()
+#     if form.validate_on_submit():
+#         # title = request.form['title']
+#         # bodytxt = request.form['bodytxt']
+#         # tags = request.form['tags']
 
+#         # article = Article(title=form.title.data,
+#         #                   bodytxt=form.bodytxt.data,
+#         #                   tags = form.tags.data,
+#         #                   article_id = g.article.id, 
+#         #                   user_id = g.user.id) 
 
-@app.route('/edit/', methods=['GET', 'POST'])
-@login_required
-def edit():
-    user = g.user
-    #articles =[]
-    form = EditForm()
-    article = db.session.query(Article).filter(Article.id==id).first()
-    if request.method == "POST":
-        title = request.form['title']
-        bodytxt = request.form['bodytxt']
-        tags = request.form['tags']
+#         g.article.title=form.title.data,
+#         g.article.bodytxt=form.bodytxt.data,
+#         g.article.tags = form.tags.data,
+#         article_id = g.article.id, 
+#         db.session.add(g.article)
+#         db.session.commit()
+#         flash('Changes have successfully been made.')  
+#         return redirect(url_for('edit'))
+#     else:
+#         pass
 
-        article = Article(title=form.title.data,
-                          bodytxt=form.bodytxt.data,
-                          tags = form.tags.data,
-                          #date = datetime.now(), 
-                          user_id = g.user.id) 
-
-        
-        db.session.commit()
-        flash('Changes have successfully been made.')  
-    
-      
-    return render_template('edit.html', action="edit",
-                           id=id,
-                           title='Edit Article',
-                           user=user,
-                           articles=articles,
-                           form=form)
-
-
+#     return render_template('edit.html', action="edit",
+#                            article_id=article_id,
+#                            title='Edit Article',
+#                            user=user,
+#                            articles=articles,
+#                            form=form)
 #Login view function
+# @app.route('/')
 @app.route('/login', methods=['GET', 'POST'])
 @oid.loginhandler #informs flask that it is the login view
 def login():
-    # if g.user is not None and g.user.is_authenticated:
-    #     return redirect(url_for('index')) #to load index instead of requested
+    if g.user is not None and g.user.is_authenticated:
+        return redirect(url_for('index')) #to load index instead of requested
     form = LoginForm()
     if form.validate_on_submit():
         session['remember_me'] = form.remember_me.data
@@ -127,10 +131,11 @@ def after_login(resp):
     login_user(user, remember = remember_me)
     return redirect(request.args.get('next') or url_for('index'))
 
-@app.route('/ https://login.yahoo.com/config/login?logout=1')
+@app.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('index'))
+    session.pop('openid', None)
+    return redirect('https://login.yahoo.com/config/login?logout=1')
 
 
 

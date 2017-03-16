@@ -20,16 +20,20 @@ function set_openid(openid, pr)
       {{ form.hidden_tag() }}
       <div>
         <span class = "welcomeTxt">Welcome to <i>MyJournal,</i> where all your secrets are safely kept.</span>
-        <div class = "accessLinks"> Access your journal using one of the links and then clicking the <b>Sign in</b> button below.
+        <div class = "accessLinks"> Access your journal using <div class="openid_div">
+            {% for pr in providers %}
+              <a href="javascript:set_openid('{{ pr.url }}', '{{ pr.name }}');">{{ pr.name }}</a>
+            {% endfor %}
+        </div> for authorization and then clicking the <b>Sign in</b> button below.
           <p class="hidden">{{ form.openid(size=80) }}</p>
           {% for error in form.openid.errors %}<br/>
           <span class="errors">Please select one of the links</span>
           {% endfor %}<br>
-          <div class="openid_div">
+          <!-- <div class="openid_div">
             {% for pr in providers %}
               <a href="javascript:set_openid('{{ pr.url }}', '{{ pr.name }}');">{{ pr.name }}</a>
             {% endfor %}
-        </div>
+        </div> -->
       </div>
     </div>
       <p>{{ form.remember_me }} Remember Me</p>
