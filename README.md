@@ -12,7 +12,15 @@
 ###### User Guide
 1. To access the app, a user needs to:
 	1. Clone or download a version of the app to his / her local machine 
-	2. Install all the app dependencies listed in the requirements.txt file by running the commandline:
+	2. Install the virtual environment in the root folder using the command:
+	```
+	virtualenv flask
+	```
+	3. Activate the virtual environment by navigating to scripts in the created folder and running the command:
+	```
+	activate
+	```
+	2. Install all the app dependencies listed in the requirements.txt file using the command:
 	```
 	pip install -r requirements.txt
 	```
