@@ -14,9 +14,13 @@
 ```
 pip install -r requirements.txt
 ```
-2. At the login in page, the user will be required to click the **_Yahoo_** for authorization using his / her yahoo email address before clicking the ** _ Sign In _ ** button
-** Note: **  New users are automatically added to the system as long as the ** _ Yahoo _ ** credentials are correct.
-3. After logging in, the user will be redirected to a page showing journal articles, _ if any _ listed in the order they were created.
-4. To edit and article, the user simply needs to hover the mouse over that particular article. An ** _ Edit _ ** button will be displaced at the top right of the article. The user can then edit the article in question by clicking this button.
-5. To create a new article, the user should click the ** _ Create Article _ ** link at the top right of the page, enter the necessary information and then click the ** _ Add Article  _ **  button.
-6. Similarly, to logout out of the app, the user should click the ** _ Logout_ ** link at the top right of the page. He / she will be required to login again to access the app in future.
+And then executing the run.py file using:
+```
+python run.py
+```
+2. At the login in page, the user will be required to click the **_Yahoo_** for authorization using his / her yahoo email address before clicking the **_Sign In_** button
+**Note:**  New users are automatically added to the system as long as the **_Yahoo_** credentials are correct.
+3. After logging in, the user will be redirected to a page showing journal articles, _if any_ listed in the order they were created.
+4. To edit and article, the user simply needs to hover the mouse over that particular article. An **_Edit_** button will be displaced at the top right of the article. The user can then edit the article in question by clicking this button.
+5. To create a new article, the user should click the **_Create Article_** link at the top right of the page, enter the necessary information and then click the **_Add Article_**  button.
+6. Similarly, to logout out of the app, the user should click the **_Logout**_ link at the top right of the page. He / she will be required to login again to access the app in future.
