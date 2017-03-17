@@ -16,7 +16,7 @@ def before_request():
     g.user = current_user
 
 
-
+#landing page
 @login_required
 @app.route('/index')
 def index():
@@ -27,6 +27,7 @@ def index():
                            user=user,
                            articles=articles)
 
+#function to create article
 @login_required
 @app.route('/create', methods=['GET', 'POST'])
 def create():
@@ -57,10 +58,10 @@ def create():
                            user=user,
                            articles=articles,
                            form=form)
-    
+
+#function for edit article    
 @login_required
 @app.route('/edit/<int:article_id>', methods=['GET', 'POST'])
-# @login_required
 def edit(article_id):
     articleData = db.session.query(Article).filter(Article.id == article_id).first()
     
@@ -91,8 +92,8 @@ def edit(article_id):
                            user=user,
                            articles=articles,
                            form=form)
+
 #Login view function 
-#@app.route('/')
 @app.route('/login', methods=['GET', 'POST'])
 @oid.loginhandler #informs flask that it is the login view
 def login():
@@ -130,6 +131,7 @@ def after_login(resp):
     login_user(user, remember = remember_me)
     return redirect(request.args.get('next') or url_for('index'))
 
+#logout
 @app.route('/logout')
 def logout():
     logout_user()

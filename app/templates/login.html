@@ -29,14 +29,10 @@ function set_openid(openid, pr)
           {% for error in form.openid.errors %}<br/>
           <span class="errors">Please select one of the links</span>
           {% endfor %}<br>
-          <!-- <div class="openid_div">
-            {% for pr in providers %}
-              <a href="javascript:set_openid('{{ pr.url }}', '{{ pr.name }}');">{{ pr.name }}</a>
-            {% endfor %}
-        </div> -->
+          
       </div>
     </div>
-      <p>{{ form.remember_me }} Remember Me</p>
+      <p class="hidden">{{ form.remember_me }} Remember Me</p>
       <p><input type="submit" value="Sign In" class="button"></p>
   </form>
   </div>

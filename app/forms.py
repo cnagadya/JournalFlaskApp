@@ -7,15 +7,15 @@ class LoginForm(Form):
     remember_me = BooleanField('remember_me', default=False)
 
 class CreateForm(Form):
-	"""Form to create / edit journal article
+	"""Form to  create journal article
 	"""
 	title = StringField('title', validators=[DataRequired()])
 	tags = StringField('tags')
 	bodytxt = TextAreaField('bodytxt',validators=[DataRequired()])
 
-	# date = d
+	
 class EditForm(Form):
-	"""Form to create / edit journal article
+	"""Form to  edit journal article
 	"""
 	title = StringField('title', validators=[DataRequired()])
 	tags = StringField('tags')
