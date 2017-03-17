@@ -4,13 +4,15 @@
 
 ###### (Proposed) Application Functionalities
 - [x] User signup / login
-- [x] Create and Save a journal entry comprising of three sections: Date;Journal (body) and Tags
+- [x] Create and Save a journal entry comprising of three sections: Date;Journal (body) and ~~Tags~~
 - [x] View all personal journey entries listed in the order of journal's date.
 - [x] Edit/update old journals
 - [ ] Search through all personal journal articles by key-words (tags) or text within the journal.
 
 ###### User Guide
-1. A user can access the app through [link](https://github.com/cnagadya/JournalFlaskApp/tree/progress) . Alternatively, should the user opt to clone or download a version of the app to his / her local machine, the user will need to install all the app dependencies listed in the requirements.txt file by running the commandline:
+1. To access the app, a user needs to:
+1. Clone or download a version of the app to his / her local machine 
+2. Install all the app dependencies listed in the requirements.txt file by running the commandline:
 ```
 pip install -r requirements.txt
 ```
@@ -18,6 +20,7 @@ And then executing the run.py file using:
 ```
 python run.py
 ```
+3. Launch the app in the browser using [link](http://127.0.0.1:5000/login) 
 2. At the login in page, the user will be required to click the **_Yahoo_** for authorization using his / her yahoo email address before clicking the **_Sign In_** button
 **Note:**  New users are automatically added to the system as long as the **_Yahoo_** credentials are correct.
 3. After logging in, the user will be redirected to a page showing journal articles, _if any_ listed in the order they were created.
